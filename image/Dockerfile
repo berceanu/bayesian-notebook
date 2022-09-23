@@ -13,6 +13,18 @@ FROM jupyter/minimal-notebook
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
+
+RUN apt-get update --yes && \
+    apt-get install --yes --no-install-recommends \
+    # for cython: https://cython.readthedocs.io/en/latest/src/quickstart/install.html
+    build-essential \
+    # for latex labels
+    cm-super \
+    dvipng \
+    # for matplotlib anim
+    ffmpeg && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /
 
 # Add environment files
@@ -22,8 +34,7 @@ RUN rm "${CONDA_DIR}/conda-meta/pinned"
 
 USER ${NB_UID}
 
-
-
+# Install Python 3 packages
 RUN mamba install -n base -y python=3.10* && \
     CONDA_OVERRIDE_CUDA="11.2" mamba env update --quiet -n base -f /environments/python3.yml && \
     mamba clean --all -f -y && \
@@ -32,7 +43,12 @@ RUN mamba install -n base -y python=3.10* && \
     fix-permissions "/home/${NB_USER}"
 
 
+# Import matplotlib the first time to build the font cache.
+ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
+
+RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
+    fix-permissions "/home/${NB_USER}"
+
 USER ${NB_UID}
 
 WORKDIR "${HOME}"
-
