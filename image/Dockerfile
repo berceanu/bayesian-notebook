@@ -13,7 +13,7 @@ FROM jupyter/scipy-notebook
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN CONDA_OVERRIDE_CUDA="11.2" mamba install --quiet --yes -c conda-forge \
-    'pytorch==1.12.1=*cuda112*' && \
+    'pytorch==1.12=*cuda112*' && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
