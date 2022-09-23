@@ -12,11 +12,8 @@ FROM jupyter/scipy-notebook
 # Fix: https://github.com/koalaman/shellcheck/wiki/SC3014
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV CONDA_OVERRIDE_CUDA="11.6"
-
-RUN mamba install --quiet --yes -c conda-forge \
-    'cudatoolkit=11.6' \
-    'pytorch=1.12.1=cuda116*' && \
+RUN CONDA_OVERRIDE_CUDA="11.6" mamba install --quiet --yes -c conda-forge \
+    'pytorch=1.12.1=*cuda116*' && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
