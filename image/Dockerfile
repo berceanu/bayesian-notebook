@@ -13,8 +13,8 @@ FROM jupyter/scipy-notebook
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN mamba install --quiet --yes -c conda-forge \
-    'gpytorch' \
-    'pytorch' && \
+    'cudatoolkit=11.6' \
+    'pytorch=1.12.1' && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
