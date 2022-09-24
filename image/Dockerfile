@@ -30,23 +30,18 @@ RUN apt-get update --yes && \
 ENV OPENBLAS_NUM_THREADS=1\
     OMP_NUM_THREADS=1\
     MKL_DYNAMIC=FALSE\
-    MKL_NUM_THREADS=1
+    MKL_NUM_THREADS=1\
+    CONDA_OVERRIDE_CUDA="11.2"
 
-# Add environment files
-RUN mkdir /environments
-COPY python3.yml /environments/
-RUN rm "${CONDA_DIR}/conda-meta/pinned"
+# Add environment file
+COPY --chown=${NB_UID}:${NB_GID} environment.yml "/home/${NB_USER}/tmp/"
+WORKDIR "/home/${NB_USER}/tmp/"
 
-USER ${NB_UID}
-
-# Install Python 3 packages
-RUN mamba install -n base -y python=3.10* && \
-    CONDA_OVERRIDE_CUDA="11.2" mamba env update --quiet -n base -f /environments/python3.yml && \
+# Install packages
+RUN mamba env update --quiet -n base -f environment.yml && \
     mamba clean --all -f -y && \
-    mamba list python | grep '^python ' | tr -s ' ' | cut -d ' ' -f 1,2 >> "${CONDA_DIR}/conda-meta/pinned" && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
-
 
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
