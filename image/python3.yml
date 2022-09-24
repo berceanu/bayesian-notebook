@@ -4,95 +4,60 @@ channels:
 dependencies:
   # general numerics (version pinned)
   - python=3.10*
+
   - numpy=1.23*
   - scipy=1.9*
   - cython=0.29*
   - libblas=*=*mkl
+
+
   # ML
   - pytorch=1.12.1=*cuda112*
+  - gpytorch=1.9*
+  - botorch=0.7*
+  - ax-platform=0.2*
+  - scikit-learn=1.1*
+
+
   # numerics, not version-pinned (less mission-critical)
-  - pfapack
-  - adaptive
+  - jax
   - xarray
   - sympy
   - sparse
+
+
   # plotting and serialization
-  - deepdish
-  - matplotlib-base=3.5*
-  - holoviews=1.14*
+  - matplotlib-base=3.6*
+  - holoviews=1.15*
   - panel=0.13*  # Needed for https://github.com/holoviz/panel/pull/3258
   - plotly>=5.0
+  - bokeh
   - ipympl  # interactive plotting in jupyterlab
+  - ipywidgets
+  - protobuf
+  - cloudpickle
+  - dill
+
+
   # parallell computing
-  - zarr
   - h5py
-  - pytables
-  - distributed
-  - dask_labextension
-  - hpc05
-  - ipyparallel
-  - dask-gateway~=2022.06
-  # jupyter tools and extensions
-  - ipython>=8
-  - jupyterhub>=2.0.0
-  - jupyterlab<4.0,>=3.3.0
-  - retrolab
-  - jupyterlab-link-share
-  - jupyter-server-proxy
-  - jupyter-vscode-proxy
-  - jupytext
-  - jupyterlab-git
-  - jupyterlab_code_formatter
-  - jupyterlab_latex
-  - jupyter_bokeh
-  - jupyterlab-lsp
-  - python-lsp-server
-  - nbgitpuller
-  - pyviz_comms
-  - line_profiler
-  - jupyterlab-system-monitor
-  - nbdime
-  - nbstripout
-  - mistune
-  - nbresuse
+  - deepdish
+  - zarr
+  - dask
+
   # other
-  - adaptive-scheduler
-  - memory_profiler
-  - jax
-  - black
-  - boost
-  - code-server
-  - emcee
-  - feedparser
-  - ffmpeg
-  - git
-  - numba
   - pandas
-  - pandoc
-  - pip
-  - pytest-flakes
-  - pytest-cov
-  - python-graphviz
-  - ruamel.yaml
-  - scikit-image
-  - shapely
-  - alphashape
-  - tqdm
+  - sqlalchemy
+  - pytables
+  - seaborn
   - xlrd
-  - ffmpeg
-  - git
-  - python-gitlab  
-  - fish
-  - zsh
-  - zip
-  # Ensure that these packages do not get removed by python upgrade
-  - conda
-  - mamba
-  - tini=0.18*
-  - pip:
-    - stim
-    - git+https://github.com/joselado/pyqula
-    - git+https://github.com/basnijholt/adaptive-tools
-    - git+https://gitlab.kwant-project.org/qt/dask-quantumtinkerer.git
-    - git+https://gitlab.kwant-project.org/asantosnet/Poisson_Solver.git
-    - opencv-python-headless
+  - patsy
+  - statsmodels
+  - numba
+  - bottleneck
+  - numexpr
+  - scikit-image
+
+
+  # jupyter tools and extensions
+  - widgetsnbextension
