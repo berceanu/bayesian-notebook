@@ -14,17 +14,12 @@ dependencies:
   - scikit-learn
   - cudatoolkit=11.2*
   - pytorch=1.12.1=*cuda112*
-  - gpytorch=1.9*
   - botorch=0.7*
   - ax-platform=0.2*
   # plotting and serialization
   - matplotlib-base=3.6*
   - ipympl  # interactive plotting in jupyterlab
   - ipywidgets
-  - bokeh
-  - plotly
-  - holoviews
-  - panel
   # serialization
   - protobuf
   - cloudpickle
