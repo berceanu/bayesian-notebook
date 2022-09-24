@@ -82,3 +82,4 @@ jobs:
           file: image/Dockerfile
           tags: |
             berceanu/bayesian-notebook:${{steps.getrefs.outputs.sha12}}, berceanu/bayesian-notebook:latest
+          push: true
