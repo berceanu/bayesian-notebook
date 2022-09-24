@@ -11,20 +11,21 @@ dependencies:
   - xarray
   - sympy
   # ML
+  - scikit-learn
+  - cudatoolkit=11.2*
   - pytorch=1.12.1=*cuda112*
   - gpytorch=1.9*
   - botorch=0.7*
   - ax-platform=0.2*
-  - scikit-learn=1.1*
-  # numerics, not version-pinned (less mission-critical)
   # plotting and serialization
   - matplotlib-base=3.6*
-  - holoviews=1.15*
-  - panel=0.13*  # Needed for https://github.com/holoviz/panel/pull/3258
-  - plotly>=5.0
-  - bokeh
   - ipympl  # interactive plotting in jupyterlab
   - ipywidgets
+  - bokeh
+  - plotly
+  - holoviews
+  - panel
+  # serialization
   - protobuf
   - cloudpickle
   - dill
@@ -34,16 +35,16 @@ dependencies:
   - zarr
   - dask
   # other
+  - scikit-image
   - pandas
+  - seaborn
   - sqlalchemy
   - pytables
-  - seaborn
   - xlrd
   - patsy
   - statsmodels
   - numba
   - bottleneck
   - numexpr
-  - scikit-image
   # jupyter tools and extensions
   - widgetsnbextension
