@@ -13,6 +13,7 @@ FROM jupyter/minimal-notebook
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
+WORKDIR /
 
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends \
@@ -25,7 +26,11 @@ RUN apt-get update --yes && \
     ffmpeg && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /
+# setting openblas and mkl variables
+ENV OPENBLAS_NUM_THREADS=1\
+    OMP_NUM_THREADS=1\
+    MKL_DYNAMIC=FALSE\
+    MKL_NUM_THREADS=1
 
 # Add environment files
 RUN mkdir /environments
