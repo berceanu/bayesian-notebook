@@ -4,28 +4,20 @@ channels:
 dependencies:
   # general numerics (version pinned)
   - python=3.10*
-
   - numpy=1.23*
   - scipy=1.9*
   - cython=0.29*
   - libblas=*=*mkl
-
-
   # ML
   - pytorch=1.12.1=*cuda112*
   - gpytorch=1.9*
   - botorch=0.7*
   - ax-platform=0.2*
   - scikit-learn=1.1*
-
-
   # numerics, not version-pinned (less mission-critical)
   - jax
   - xarray
   - sympy
-  - sparse
-
-
   # plotting and serialization
   - matplotlib-base=3.6*
   - holoviews=1.15*
@@ -37,14 +29,11 @@ dependencies:
   - protobuf
   - cloudpickle
   - dill
-
-
   # parallell computing
   - h5py
   - deepdish
   - zarr
   - dask
-
   # other
   - pandas
   - sqlalchemy
@@ -57,7 +46,5 @@ dependencies:
   - bottleneck
   - numexpr
   - scikit-image
-
-
   # jupyter tools and extensions
   - widgetsnbextension
