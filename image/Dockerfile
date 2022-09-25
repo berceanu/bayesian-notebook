@@ -27,15 +27,17 @@ RUN apt-get update --yes && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # setting openblas and mkl variables
-ENV OPENBLAS_NUM_THREADS=1\
-    OMP_NUM_THREADS=1\
-    MKL_DYNAMIC=FALSE\
-    MKL_NUM_THREADS=1\
+ENV OPENBLAS_NUM_THREADS=1 \
+    OMP_NUM_THREADS=1 \
+    MKL_DYNAMIC=FALSE \
+    MKL_NUM_THREADS=1 \
     CONDA_OVERRIDE_CUDA="11.2"
 
 # Add environment file
 COPY --chown=${NB_UID}:${NB_GID} environment.yml "/home/${NB_USER}/tmp/"
 WORKDIR "/home/${NB_USER}/tmp/"
+
+USER ${NB_UID}
 
 # Install packages
 RUN mamba env update --quiet -n base -f environment.yml && \
@@ -50,5 +52,4 @@ RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
     fix-permissions "/home/${NB_USER}"
 
 USER ${NB_UID}
-
 WORKDIR "${HOME}"
