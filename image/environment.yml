@@ -13,6 +13,8 @@ dependencies:
   - scikit-learn
   - cudatoolkit=11.2*
   - pytorch=1.12.1=*cuda112*
+  - torchvision
+  - gpytorch
   - botorch=0.7*
   - ax-platform=0.2*
   # plotting
