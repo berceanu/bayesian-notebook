@@ -17,6 +17,7 @@ dependencies:
   - gpytorch
   - botorch=0.7*
   - ax-platform=0.2*
+  - blitz-bayesian-pytorch
   # plotting
   - matplotlib-base=3.6*
   - ipympl  # interactive plotting in jupyterlab
