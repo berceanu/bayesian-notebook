@@ -30,7 +30,7 @@ dependencies:
   - dask
   # other
   - scikit-image
-  - pandas
+  - pandas=1.4*  # https://github.com/Epistimio/orion/issues/999
   - seaborn
   - sqlalchemy
   - pytables
