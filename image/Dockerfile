@@ -45,6 +45,12 @@ RUN mamba env update --quiet -n base -f environment.yml && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
+# TODO: remove
+# Install in the default environment
+RUN pip install --quiet --no-cache-dir 'git+https://github.com/uspas/2021_optimization_and_ml' && \
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
+
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
 
@@ -52,4 +58,5 @@ RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
     fix-permissions "/home/${NB_USER}"
 
 USER ${NB_UID}
+
 WORKDIR "${HOME}"
