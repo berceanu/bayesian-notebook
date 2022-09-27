@@ -45,4 +45,6 @@ dependencies:
   - bottleneck
   - numexpr
   # jupyter tools and extensions
+  - papermill
   - widgetsnbextension
+
