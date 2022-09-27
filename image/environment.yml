@@ -31,8 +31,9 @@ dependencies:
   - deepdish
   - zarr
   - dask
-  # other
+  # laser-plasma simulation
   - openpmd-api~=0.14.0
+  # other
   - scikit-image
   - pandas=1.4*  # https://github.com/Epistimio/orion/issues/999
   - seaborn

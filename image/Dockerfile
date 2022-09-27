@@ -52,7 +52,7 @@ RUN pip install --quiet --no-cache-dir 'git+https://github.com/uspas/2021_optimi
     fix-permissions "/home/${NB_USER}"
 
 # Wake-T
-RUN pip install --quiet --no-cache-dir aptools>=0.1.25 Wake-T && \
+RUN pip install --quiet --no-cache-dir aptools>=0.1.25 openpmd-viewer~=1.4.0 Wake-T && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
