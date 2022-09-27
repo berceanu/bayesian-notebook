@@ -51,6 +51,11 @@ RUN pip install --quiet --no-cache-dir 'git+https://github.com/uspas/2021_optimi
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
+# Wake-T
+RUN pip install --quiet --no-cache-dir aptools>=0.1.25 Wake-T && \
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
+
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
 
