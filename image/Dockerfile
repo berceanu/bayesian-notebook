@@ -56,6 +56,11 @@ RUN pip install --quiet --no-cache-dir aptools>=0.1.25 openpmd-viewer~=1.4.0 Wak
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
+# prepic
+RUN pip install --quiet --no-cache-dir sliceplots prepic && \
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
+
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
 

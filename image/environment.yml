@@ -22,6 +22,7 @@ dependencies:
   - matplotlib-base=3.6*
   - ipympl  # interactive plotting in jupyterlab
   - ipywidgets
+  - matplotlib-label-lines
   # serialization
   - protobuf
   - cloudpickle
@@ -34,6 +35,7 @@ dependencies:
   # laser-plasma simulation
   - openpmd-api~=0.14.0
   # other
+  - unyt
   - scikit-image
   - pandas=1.4*  # https://github.com/Epistimio/orion/issues/999
   - seaborn
