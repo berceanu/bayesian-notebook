@@ -57,7 +57,7 @@ RUN pip install --quiet --no-cache-dir aptools>=0.1.25 openpmd-viewer~=1.4.0 Wak
     fix-permissions "/home/${NB_USER}"
 
 # prepic
-RUN pip install --quiet --no-cache-dir sliceplots prepic && \
+RUN pip install --quiet --no-cache-dir sliceplots prepic~=0.2.5 && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
