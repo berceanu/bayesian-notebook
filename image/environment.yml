@@ -50,4 +50,6 @@ dependencies:
   # jupyter tools and extensions
   - papermill
   - widgetsnbextension
+  - jupyter-server-proxy
+  - jupyter-vscode-proxy
 
