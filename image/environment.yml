@@ -53,4 +53,6 @@ dependencies:
   - code-server
   - jupyter-server-proxy
   - jupyter-vscode-proxy
+  - jupyterlab-lsp
+  - python-lsp-server
 
